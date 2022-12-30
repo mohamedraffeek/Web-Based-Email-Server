@@ -3,10 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { MailComponent } from './mail/mail.component';
+import { InboxComponent } from './mail/inbox/inbox.component';
+import { TrashComponent } from './mail/trash/trash.component';
+import { ComposeComponent } from './mail/compose/compose.component';
+import { ContactsComponent } from './mail/contacts/contacts.component';
+import { SentComponent } from './mail/sent/sent.component';
+import { DraftComponent } from './mail/draft/draft.component';
+import { FoldersComponent } from './mail/folders/folders.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SignupComponent,
+    LoginComponent,
+    MailComponent,
+    InboxComponent,
+    TrashComponent,
+    ComposeComponent,
+    ContactsComponent,
+    SentComponent,
+    DraftComponent,
+    FoldersComponent
   ],
   imports: [
     BrowserModule,

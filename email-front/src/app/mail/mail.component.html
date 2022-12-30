@@ -1,0 +1,20 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<div class="container">
+    <div class="logo">
+        <h1>CSMail</h1>
+        <i class="material-icons" id="special">mail</i>
+    </div><br><br><br><br>
+    <div class="mini-container">
+        <div class="side-menu">
+            <a routerLink="/mail/compose"><i class="material-symbols-outlined">edit</i><button id="1" (click)="border('1')" routerLinkActive="active">Compose</button><br><br></a>
+            <a routerLink="/mail/inbox"><i class="material-symbols-outlined">inbox</i><button id="2" (click)="border('2')" routerLinkActive="active">Inbox</button><br><br></a>
+            <a routerLink="/mail/sent"><i class="material-symbols-outlined">keyboard_arrow_right</i><button id="3" (click)="border('3')" routerLinkActive="active">Sent</button><br><br></a>
+            <a routerLink="/mail/draft"><i class="material-symbols-outlined">draft</i><button id="4" (click)="border('4')" routerLinkActive="active">Draft</button><br><br></a>
+            <a routerLink="/mail/trash"><i class="material-symbols-outlined">delete</i><button id="5" (click)="border('5')" routerLinkActive="active">Trash</button><br><br></a>
+            <a routerLink="/mail/folders"><i class="material-symbols-outlined">folder</i><button id="5" (click)="border('6')" routerLinkActive="active">User Folders</button><br><br></a>
+            <a routerLink="/mail/contacts"><i class="material-symbols-outlined">contacts</i><button id="6" (click)="border('7')" routerLinkActive="active">Contacts</button></a>
+        </div>
+        <div class="routed"><router-outlet></router-outlet></div>
+    </div>
+</div>

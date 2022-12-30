@@ -1,0 +1,145 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+div.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup{
+    position: absolute;
+    top: 20%;
+    display: block;
+    width: 400px;
+    height: 420px;
+    border-radius: 15px;
+    border: 1px solid rgba(234, 234, 234, 0.5);
+    background: linear-gradient(-45deg, #00fbffb3, #0422e67b, #23a5d5c1, #23d5abbc);
+    animation: gradient 15s infinite;
+    background-size: 1000% 1000%;
+}
+
+
+h1{
+    position: absolute;
+    top: 5%;
+    background: linear-gradient(-45deg, #00fbffb3, #0422e67b, #23a5d5c1, #23d5abbc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 15s ease infinite;
+    background-size: 1000% 1000%;
+    cursor: default;
+}
+
+h2{
+    color: white;
+    border-bottom: 1px solid rgba(238, 223, 223, 0.297);
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 15px;
+    transform: translate(0, -10%);
+    cursor: default;
+}
+
+h3{
+    color: white;
+    font-weight: bold;
+    text-align: left;
+    transform: translate(20%, -100%);
+    cursor: default;
+}
+
+input{
+    border-radius: 15px;
+    border: 1px solid rgba(238, 223, 223, 0.297);
+    padding: 15px;
+    text-align: center;
+    margin-left: 10%;
+    width: 70%;
+    height: 5%;
+    margin-top: 5%;
+    font-size: 18px;
+    background-color: transparent;
+    color: white;
+    transition: 0.25s;
+}
+input::placeholder{
+  color: white;
+  font-weight: bold;
+  opacity: 0.6;
+}
+input:focus{
+  outline: none;
+  height: 10%;
+}
+.register{
+    margin-top: 4%;
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+    width: 40%;
+    height: 16%;
+    border: 1px solid rgba(238, 223, 223, 0.297);
+    border-radius: 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: transparent;
+    padding-bottom: 1.5%;
+    
+}
+
+.login{
+    transform: translate(60%, -28%);
+    width: 30%;
+    height: 16%;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: transparent;
+    padding-bottom: 1.5%;
+}
+
+i{
+    margin-right: -6%;
+    padding-left: 10px;
+    top: 5px;
+    position: relative;
+    color: #404041;
+    cursor: default;
+}
+
+button:hover{
+    background-color: white;
+    color: black;
+    transition: 0.25s;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+#special{
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: linear-gradient(-45deg, #00fbffb3, #0422e67b, #23a5d5c1, #23d5abbc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 15s ease infinite;
+    background-size: 1000% 1000%;
+}
