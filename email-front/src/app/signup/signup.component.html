@@ -5,10 +5,10 @@
     <div class="signup">
         <h2>Register</h2>
         <i class="material-icons">person</i>
-        <input type="email" placeholder="Username"><br>
+        <input type="email" placeholder="Username" ngModel #username="ngModel" id="user"><br>
         <i class="material-icons">lock</i>
-        <input type="password" placeholder="Password"><br>
-        <button class="register">Create</button>
+        <input type="password" placeholder="Password" ngModel #password="ngModel" id="pass"><br>
+        <button class="register" (click)="register(username.value, password.value)">Create</button>
         <h2></h2>
         <div style="display: flex;">
             <h3>Already a Member?</h3>

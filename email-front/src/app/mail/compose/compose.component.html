@@ -1,1 +1,33 @@
-<p>compose works!</p>
+<div class="container">
+    <form>
+        <div>
+            <h2>New Message</h2>
+        </div>
+        <div class="upper">
+            <label class="tolabel">To</label>
+            <input type="text" class="toarea" [(ngModel)] = "to" name="to">
+            <label class="subjectlabel">Subject</label>
+            <input type="text" class="subjectarea" [(ngModel)] = "subject" name="subject">
+        </div>
+        <div>
+            <textarea type="text" [(ngModel)] = "content" name="content"></textarea>
+        </div>
+        <div class="bottom">
+            <div class="attach">
+                <input type="file" class="file" multiple="multiple" (change)="getFile($event)">
+            </div>
+            <label class="prio">Priority</label>
+            <select name="priority" id="priority">
+                <option value="4">Very High</option>
+                <option value="3">High</option>
+                <option value="2">Medium</option>
+                <option value="1">Low</option>
+            </select>
+            <div class="finishing">
+                <button class="send" (click)="draft()">Save to draft</button>
+                <button class="send" (click)="createEmail()">Send</button>
+            </div>
+        </div>
+  
+    </form>
+  </div>

@@ -1,1 +1,122 @@
-<p>sent works!</p>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div>
+    <button title="Delete Email" (click)="deleteEmails()"><i class="material-icons">delete</i></button>
+    <button title="Previous" class="prev" [disabled] = "pageNumber == 1" (click)="prev()"><i class="material-icons">arrow_back</i></button>
+    <button title="Next" class="next" [disabled] = "allEmails.length - (pageNumber - 1) * 14 <= 14" (click)="next()"><i class="material-icons">arrow_forward</i></button>
+    <button title="refresh" class="Refresh" (click)="refresh()"><i class="material-icons">refresh</i></button>
+</div>
+<div id="container">
+    <div class="labels">
+      <input style="position: absolute; top: 3px;" title="Select All" type="checkbox" [(ngModel)]="selectAll" (change)="toggleCheckboxes()">
+      <label class="senderl">Sender</label>
+      <label class="subjectl">Subject</label>
+      <label class="datel">Date</label>
+      <label class="priol">Urgency Degree</label>
+    </div>
+    <div class="row{{emails[0].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 0" (click)="on(0)">
+      <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[0].isChecked" [value]="checkboxes[0].value" (click)="$event.stopPropagation()">
+      <span class="from">{{emails[0].getFrom()}}</span>
+      <span class="subject">{{emails[0].getSubject()}}</span>
+      <span class="date">{{emails[0].getDate()}}</span>
+      <span class="prio">{{emails[0].getPriority()}}</span>
+    </div>
+    <div class="row{{emails[1].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 1" (click)="on(1)">
+      <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[1].isChecked" [value]="checkboxes[1].value" (click)="$event.stopPropagation()">
+      <span class="from">{{emails[1].getFrom()}}</span>
+      <span class="subject">{{emails[1].getSubject()}}</span>
+      <span class="date">{{emails[1].getDate()}}</span>
+      <span class="prio">{{emails[1].getPriority()}}</span>
+    </div>
+    <div class="row{{emails[2].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 2" (click)="on(2)">
+      <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[2].isChecked" [value]="checkboxes[2].value" (click)="$event.stopPropagation()">
+      <span class="from">{{emails[2].getFrom()}}</span>
+      <span class="subject">{{emails[2].getSubject()}}</span>
+      <span class="date">{{emails[2].getDate()}}</span>
+      <span class="prio">{{emails[2].getPriority()}}</span>
+    </div>
+    <div class="row{{emails[3].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 3" (click)="on(3)">
+      <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[3].isChecked" [value]="checkboxes[3].value" (click)="$event.stopPropagation()">
+      <span class="from">{{emails[3].getFrom()}}</span>
+      <span class="subject">{{emails[3].getSubject()}}</span>
+      <span class="date">{{emails[3].getDate()}}</span>
+      <span class="prio">{{emails[3].getPriority()}}</span>
+    </div>
+    <div class="row{{emails[4].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 4" (click)="on(4)">
+      <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[4].isChecked" [value]="checkboxes[4].value" (click)="$event.stopPropagation()">
+      <span class="from">{{emails[4].getFrom()}}</span>
+      <span class="subject">{{emails[4].getSubject()}}</span>
+      <span class="date">{{emails[4].getDate()}}</span>
+      <span class="prio">{{emails[4].getPriority()}}</span>
+    </div>
+    <div class="row{{emails[5].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 5" (click)="on(5)">
+      <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[5].isChecked" [value]="checkboxes[5].value" (click)="$event.stopPropagation()">
+      <span class="from">{{emails[5].getFrom()}}</span>
+      <span class="subject">{{emails[5].getSubject()}}</span>
+      <span class="date">{{emails[5].getDate()}}</span>
+      <span class="prio">{{emails[5].getPriority()}}</span>
+    </div>
+    <div class="row{{emails[6].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 6" (click)="on(6)">
+      <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[6].isChecked" [value]="checkboxes[6].value" (click)="$event.stopPropagation()">
+      <span class="from">{{emails[6].getFrom()}}</span>
+      <span class="subject">{{emails[6].getSubject()}}</span>
+      <span class="date">{{emails[6].getDate()}}</span>
+      <span class="prio">{{emails[6].getPriority()}}</span>
+    </div>
+    <div class="row{{emails[7].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 7" (click)="on(7)">
+      <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[7].isChecked" [value]="checkboxes[7].value" (click)="$event.stopPropagation()">
+      <span class="from">{{emails[7].getFrom()}}</span>
+      <span class="subject">{{emails[7].getSubject()}}</span>
+      <span class="date">{{emails[7].getDate()}}</span>
+      <span class="prio">{{emails[7].getPriority()}}</span>
+    </div>
+    <div class="row{{emails[8].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 8" (click)="on(8)">
+      <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[8].isChecked" [value]="checkboxes[8].value" (click)="$event.stopPropagation()">
+      <span class="from">{{emails[8].getFrom()}}</span>
+      <span class="subject">{{emails[8].getSubject()}}</span>
+      <span class="date">{{emails[8].getDate()}}</span>
+      <span class="prio">{{emails[8].getPriority()}}</span>
+    </div>
+    <div class="row{{emails[9].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 9" (click)="on(9)">
+      <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[9].isChecked" [value]="checkboxes[9].value" (click)="$event.stopPropagation()">
+      <span class="from">{{emails[9].getFrom()}}</span>
+      <span class="subject">{{emails[9].getSubject()}}</span>
+      <span class="date">{{emails[9].getDate()}}</span>
+      <span class="prio">{{emails[9].getPriority()}}</span>
+    </div>
+    <div class="row{{emails[10].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 10" (click)="on(10)">
+      <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[10].isChecked" [value]="checkboxes[10].value" (click)="$event.stopPropagation()">
+      <span class="from">{{emails[10].getFrom()}}</span>
+      <span class="subject">{{emails[10].getSubject()}}</span>
+      <span class="date">{{emails[10].getDate()}}</span>
+      <span class="prio">{{emails[10].getPriority()}}</span>
+    </div>
+    <div class="row{{emails[11].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 11" (click)="on(11)">
+      <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[11].isChecked" [value]="checkboxes[11].value" (click)="$event.stopPropagation()">
+      <span class="from">{{emails[11].getFrom()}}</span>
+      <span class="subject">{{emails[11].getSubject()}}</span>
+      <span class="date">{{emails[11].getDate()}}</span>
+      <span class="prio">{{emails[11].getPriority()}}</span>
+    </div>
+    <div class="row{{emails[12].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 12" (click)="on(12)">
+      <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[12].isChecked" [value]="checkboxes[12].value" (click)="$event.stopPropagation()">
+      <span class="from">{{emails[12].getFrom()}}</span>
+      <span class="subject">{{emails[12].getSubject()}}</span>
+      <span class="date">{{emails[12].getDate()}}</span>
+      <span class="prio">{{emails[12].getPriority()}}</span>
+    </div>
+    <div class="row{{emails[13].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 13" (click)="on(13)">
+      <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[13].isChecked" [value]="checkboxes[13].value" (click)="$event.stopPropagation()">
+      <span class="from">{{emails[13].getFrom()}}</span>
+      <span class="subject">{{emails[13].getSubject()}}</span>
+      <span class="date">{{emails[13].getDate()}}</span>
+      <span class="prio">{{emails[13].getPriority()}}</span>
+    </div>
+  </div>
+  <div id = 'display' #myDisplay>
+    <div class="msg">
+      <div class="close" (click)="off()">&times;</div>
+      <h1>{{subject}}</h1>
+      <div>From: {{from}}, on: {{date}}</div>
+      <p>{{content}}</p>
+    </div>
+  </div>

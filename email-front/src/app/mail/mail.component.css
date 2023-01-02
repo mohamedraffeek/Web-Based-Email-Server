@@ -14,6 +14,18 @@ h1{
     background-size: 1000% 1000%;
 }
 
+h2{
+    cursor: default;
+    position: absolute;
+    left: 80%;
+    top: 2.5%;
+    background: linear-gradient(-45deg, #ff7700b3, #e604047b, #d52323c1, #c9d523bc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 15s ease infinite;
+    background-size: 1000% 1000%;
+}
+
 #special{
     position: absolute;
     left: 140px;
@@ -71,11 +83,21 @@ i{
 }
 
 .routed{
-    border-top: 1px solid #c3bfbf54;
     position: relative;
+    top: -50px;
     left: 20px;
     height: 500px;
     width: 80%;
+}
+
+.logout{
+    cursor: default;
+    position: relative;
+    width: 80px;
+    border-radius: 0px;
+    border-bottom: 1px solid orange;
+    left: 81%;
+    top: 0px;
 }
 
 @keyframes gradient {

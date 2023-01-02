@@ -1,0 +1,100 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.upper{
+    display: flex;
+}
+
+.tolabel{
+    position: relative;
+}
+
+.toarea{
+    position: relative;
+    left: 10px;
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid silver;
+}
+
+.subjectlabel{
+    position: relative;
+    left: 5%;
+}
+
+.subjectarea{
+    position: relative;
+    left: 70px;
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid silver;
+}
+
+input:focus{
+    outline: none;
+    border-bottom: 1px solid black;
+}
+
+textarea{
+    margin-top: 20px;
+    border: none;
+    border-top: 1px solid silver;
+    border-left: 1px solid silver;
+    width: 80%;
+    height: 300px;
+    resize: none;
+}
+
+textarea:focus{
+    outline: none;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.file{
+    margin-top: 20px;
+}
+
+.send:hover, #priority:hover{
+    background-color: #c3bfbf54;
+}
+
+.send:active, #priority:hover{
+    background-color: #7f7d7d54;
+}
+
+#priority:focus{
+    outline: none;
+}
+
+.bottom{
+    display: flex;
+}
+
+#priority{
+    position: relative;
+    left: 20%;
+    border: 1px solid silver;
+    border-radius: 30px;
+}
+
+.finishing{
+    position: relative;
+    left: 30%;
+}
+
+.send{
+    margin-left: 5px;
+    width: 100px;
+    height: 60px;
+    border: 1px solid silver;
+    border-radius: 30px;
+    background-color: transparent;
+}
+
+.prio{
+    position: relative;
+    left: 18.5%;
+    top: 18px;
+}

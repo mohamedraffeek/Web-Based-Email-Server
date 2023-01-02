@@ -4,6 +4,8 @@
     <div class="logo">
         <h1>CSMail</h1>
         <i class="material-icons" id="special">mail</i>
+        <h2>Welcome, {{username}}</h2>
+        <button class="logout" (click)="logout()">Logout</button>
     </div><br><br><br><br>
     <div class="mini-container">
         <div class="side-menu">
@@ -12,8 +14,8 @@
             <a routerLink="/mail/sent"><i class="material-symbols-outlined">keyboard_arrow_right</i><button id="3" (click)="border('3')" routerLinkActive="active">Sent</button><br><br></a>
             <a routerLink="/mail/draft"><i class="material-symbols-outlined">draft</i><button id="4" (click)="border('4')" routerLinkActive="active">Draft</button><br><br></a>
             <a routerLink="/mail/trash"><i class="material-symbols-outlined">delete</i><button id="5" (click)="border('5')" routerLinkActive="active">Trash</button><br><br></a>
-            <a routerLink="/mail/folders"><i class="material-symbols-outlined">folder</i><button id="5" (click)="border('6')" routerLinkActive="active">User Folders</button><br><br></a>
-            <a routerLink="/mail/contacts"><i class="material-symbols-outlined">contacts</i><button id="6" (click)="border('7')" routerLinkActive="active">Contacts</button></a>
+            <a routerLink="/mail/folders"><i class="material-symbols-outlined">folder</i><button id="6" (click)="border('6')" routerLinkActive="active">User Folders</button><br><br></a>
+            <a routerLink="/mail/contacts"><i class="material-symbols-outlined">contacts</i><button id="7" (click)="border('7')" routerLinkActive="active">Contacts</button></a>
         </div>
         <div class="routed"><router-outlet></router-outlet></div>
     </div>
