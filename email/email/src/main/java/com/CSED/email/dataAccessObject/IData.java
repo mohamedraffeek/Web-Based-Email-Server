@@ -12,5 +12,6 @@ public interface IData {
     void setUsers(ArrayList<IUser> users);
     void deleteEmail(String username, String folder, int index);
     void restoreEmail(String username, String folder, int index);
+    void moveToFolder(String username, String folder, int index);
     void saveData();
 }

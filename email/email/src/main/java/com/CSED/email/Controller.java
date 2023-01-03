@@ -215,4 +215,49 @@ public class Controller {
         Criteria or4 = new OrCriteria(or3, criteria5);
         return user.getFolder(folder).search(or4);
     }
+
+    @PostMapping("/addFolder/{folder}/{username}")
+    public String addFolder(@PathVariable("folder") String folder, @PathVariable("username") String username){
+        IUser user = data.getUserByUsername(username);
+        if(!user.isNull()){
+            user.addFolder(folder);
+        }
+        return "Folder added successfully";
+    }
+
+    @PostMapping("/deleteFolder/{index}/{username}")
+    public String deleteFolder(@PathVariable("index") int index, @PathVariable("username") String username){
+        IUser user = data.getUserByUsername(username);
+        if(!user.isNull()){
+            user.deleteFolder(index);
+        }
+        return "Folder deleted successfully";
+    }
+
+    @PostMapping("/renameFolder/{index}/{newName}/{username}")
+    public String renameFolder(@PathVariable("index") int index, @PathVariable("newName") String newName, @PathVariable("username") String username){
+        IUser user = data.getUserByUsername(username);
+        if(!user.isNull()){
+            user.renameFolder(index, newName);
+        }
+        return "Folder renamed successfully";
+    }
+
+    @GetMapping("/getFolders/{username}")
+    public ArrayList<Folder> getFolders(@PathVariable("username") String username){
+        IUser user = data.getUserByUsername(username);
+        if(user.isNull())
+            return null;
+        return user.getFolders();
+    }
+
+    @PostMapping("/addToFolder/{username}/{index}/{folder}")
+    public void addToFolder(@PathVariable("index") int index, @PathVariable("username") String username, @PathVariable("folder") String folder){
+        try {
+            data.moveToFolder(username,folder,index);
+        }catch(Exception e){
+            System.out.println("Something Wrong in moving");
+        }
+        data.saveData();
+    }
 }

@@ -1,1 +1,88 @@
-<!--to be implemented-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<div>
+    <button title="Delete Email" (click)="deleteFolder()"><i class="material-icons">delete</i></button>
+</div>
+<div>
+    <button title="refresh" class="Refresh" (click)="refresh()"><i class="material-icons">refresh</i></button>
+    <input type="text" [(ngModel)]="newName" placeholder="New Folder..." style="position: relative; left: 5%;">
+    <button title="Add" class="add" (click)="addFolder()" style="position: relative;"><i class="material-icons">add</i></button>
+    <input type="text" [(ngModel)]="rename" placeholder="Rename Folder..." style="position: relative; left: 10%;">
+    <button title="Rename" class="rename" (click)="renameFolder()"><i class="material-symbols-outlined">edit</i></button>
+</div>
+<div id="container">
+  <div class="labels">
+    <label class="senderl">Name</label>
+  </div>
+  <div class="row" *ngIf="folders.length > 0" (click)="on(0)">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[0].isChecked" [value]="checkboxes[0].value" (click)="$event.stopPropagation()">
+    <span class="from">{{folders[0].getName()}}</span>
+  </div>
+  <div class="row" *ngIf="folders.length > 1">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[1].isChecked" [value]="checkboxes[1].value" (click)="$event.stopPropagation()">
+    <span class="from">{{folders[1].getName()}}</span>
+  </div>
+  <div class="row" *ngIf="folders.length > 2">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[2].isChecked" [value]="checkboxes[2].value" (click)="$event.stopPropagation()">
+    <span class="from">{{folders[2].getName()}}</span>
+  </div>
+  <div class="row" *ngIf="folders.length > 3">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[3].isChecked" [value]="checkboxes[3].value" (click)="$event.stopPropagation()">
+    <span class="from">{{folders[3].getName()}}</span>
+  </div>
+  <div class="row" *ngIf="folders.length > 4">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[4].isChecked" [value]="checkboxes[4].value" (click)="$event.stopPropagation()">
+    <span class="from">{{folders[4].getName()}}</span>
+  </div>
+  <div class="row" *ngIf="folders.length > 5">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[5].isChecked" [value]="checkboxes[5].value" (click)="$event.stopPropagation()">
+    <span class="from">{{folders[5].getName()}}</span>
+  </div>
+</div>
+<div id = 'display' #myDisplay>
+    <div class="msg">
+        <div class="close" (click)="off()">&times;</div>
+        <div class="labels">
+            <label class="senderl">Sender</label>
+            <label class="subjectl">Subject</label>
+            <label class="datel">Date</label>
+            <label class="priol">Urgency Degree</label>
+          </div>
+        <div class="row{{emails[0].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 0">
+            <span class="from">{{emails[0].getFrom()}}</span>
+            <span class="subject">{{emails[0].getSubject()}}</span>
+            <span class="date">{{emails[0].getDate()}}</span>
+            <span class="prio">{{emails[0].getPriority()}}</span>
+          </div>
+          <div class="row{{emails[1].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 1">
+            <span class="from">{{emails[1].getFrom()}}</span>
+            <span class="subject">{{emails[1].getSubject()}}</span>
+            <span class="date">{{emails[1].getDate()}}</span>
+            <span class="prio">{{emails[1].getPriority()}}</span>
+          </div>
+          <div class="row{{emails[2].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 2">
+            <span class="from">{{emails[2].getFrom()}}</span>
+            <span class="subject">{{emails[2].getSubject()}}</span>
+            <span class="date">{{emails[2].getDate()}}</span>
+            <span class="prio">{{emails[2].getPriority()}}</span>
+          </div>
+          <div class="row{{emails[3].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 3">
+            <span class="from">{{emails[3].getFrom()}}</span>
+            <span class="subject">{{emails[3].getSubject()}}</span>
+            <span class="date">{{emails[3].getDate()}}</span>
+            <span class="prio">{{emails[3].getPriority()}}</span>
+          </div>
+          <div class="row{{emails[4].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 4">
+            <span class="from">{{emails[4].getFrom()}}</span>
+            <span class="subject">{{emails[4].getSubject()}}</span>
+            <span class="date">{{emails[4].getDate()}}</span>
+            <span class="prio">{{emails[4].getPriority()}}</span>
+          </div>
+          <div class="row{{emails[5].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 5">
+            <span class="from">{{emails[5].getFrom()}}</span>
+            <span class="subject">{{emails[5].getSubject()}}</span>
+            <span class="date">{{emails[5].getDate()}}</span>
+            <span class="prio">{{emails[5].getPriority()}}</span>
+          </div>
+    </div>
+</div>

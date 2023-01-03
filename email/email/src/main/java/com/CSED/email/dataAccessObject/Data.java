@@ -74,6 +74,15 @@ public class Data implements IData{
     }
 
     @Override
+    public void moveToFolder(String username,String folderName,int index){
+        IUser user = this.getUserByUsername(username);
+        Folder folder = user.getFolder("Inbox");
+        Email email = folder.getEmail(index);
+        Folder to = user.getFolder(folderName);
+        to.addEmail(email);
+    }
+
+    @Override
     public void saveData(){
         File file=new File("Data/users.json");
         try {

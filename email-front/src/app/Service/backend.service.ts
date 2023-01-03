@@ -86,4 +86,24 @@ export class BackendService {
     return this.http.get<Array<Email>>(`http://localhost:8080/serve/sortEmails/${username}/${folder}`, httpOptions2);
   }
 
+  getFolders(username: string): Observable<any>{
+    return this.http.get<any>(`http://localhost:8080/serve/getFolders/${username}`, httpOptions2);
+  }
+
+  addFolder(folder: string, username: string): Observable<any>{
+    return this.http.post<any>(`http://localhost:8080/serve/addFolder/${folder}/${username}`, JSON, httpOptions);
+  }
+
+  deleteFolder(index: number, username: string): Observable<any>{
+    return this.http.post<any>(`http://localhost:8080/serve/deleteFolder/${index}/${username}`, JSON, httpOptions);
+  }
+
+  renameFolder(index: number, newName: string, username: string): Observable<any>{
+    return this.http.post<any>(`http://localhost:8080/serve/renameFolder/${index}/${newName}/${username}`, JSON, httpOptions);
+  }
+
+  addToFolder(index: number, folder: string): Observable<any>{
+    return this.http.post<any>(`http://localhost:8080/serve/addToFolder/${Master.Username}/${index}/${folder}`, JSON, httpOptions);
+  }
+
 }

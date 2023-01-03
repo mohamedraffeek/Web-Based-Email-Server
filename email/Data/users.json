@@ -1,8 +1,1 @@
-[{"account":{"_username":"Mohamed","_password":"123"},
-  "null":false,"password":"123","username":"Mohamed"},
-  {"account":{"_username":"Ahmed","_password":"123"},
-    "null":false,"password":"123","username":"Ahmed"},
-  {"account":{"_username":"Mostafa","_password":"123"},
-    "null":false,"password":"123","username":"Mostafa"},
-  {"account":{"_username":"Badry","_password":"123"},
-    "null":false,"password":"123","username":"Badry"}]
+[{"account":{"_username":"Mohamed","_password":"123"},"folders":[{"name":"bbb","content":[{"from":"Mohamed","to":["Mohamed"],"subject":"kjfn","body":"jnewfgfw","attachment":null,"priority":4,"read":true,"date":1672740308801},{"from":"Mohamed","to":["Mohamed"],"subject":"dwlkmdqw","body":"dwkekeeeeeeeeeeeeeeee","attachment":null,"priority":4,"read":false,"date":1672740924761},{"from":"Mohamed","to":["Mohamed"],"subject":"ohyeah","body":"owow","attachment":null,"priority":1,"read":false,"date":1672741061342},{"from":"Mohamed","to":["Mohamed"],"subject":"kjfn","body":"jnewfgfw","attachment":null,"priority":4,"read":true,"date":1672740308801},{"from":"Mohamed","to":["Mohamed"],"subject":"kjfn","body":"jnewfgfw","attachment":null,"priority":4,"read":true,"date":1672740308801},{"from":"Mohamed","to":["Mohamed"],"subject":"ohyeah","body":"owow","attachment":null,"priority":1,"read":false,"date":1672741061342}]}],"null":false,"username":"Mohamed","password":"123"}]

@@ -23,6 +23,7 @@ export class InboxComponent implements OnInit{
   email!: Email;
   emails: Email[] = [];
   allEmails: Email[] = [];
+  folderName!: string;
 
   prioritySort: boolean = true;
   searchString: string = '';
@@ -77,6 +78,20 @@ export class InboxComponent implements OnInit{
           this.allEmails = [];
           this.emails = [];
           this.loadEmails();
+        }
+        );
+      }
+    }
+    
+  }
+
+  addToFolder(){
+    for(let i = 0; i < 14; i++){
+      if(this.checkboxes[i].isChecked){
+        this.checkboxes[i].isChecked = false;
+        console.log(i);
+        this.service.addToFolder((this.allEmails.length - ((this.pageNumber - 1) * 14 + i) - 1), this.folderName).subscribe(() =>{
+          alert("Email Added to folder " + this.folderName + " successfully");
         }
         );
       }

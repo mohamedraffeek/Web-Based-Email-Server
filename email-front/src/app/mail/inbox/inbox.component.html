@@ -1,4 +1,8 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="folder">
+  <input type="text" id="text" [(ngModel)]="folderName" placeholder="Add to Folder...">
+  <button title="Add Email to folder" (click)="addToFolder()"><i class="material-icons">folder</i></button>
+</div>
 <div class="search">
   <input type="text" placeholder="Search..." [(ngModel)]="searchString">
   <div #filter>
@@ -16,7 +20,6 @@
   <button class="searchButton" (click)="search()"><i class="material-icons">search</i></button>
 </div>
 <div>
-  <button title="Add Email to folder"><i class="material-icons">folder</i></button>
   <button title="Delete Email" (click)="deleteEmails()"><i class="material-icons">delete</i></button>
   <button title="Sort Emails by Priority" [(ngModel)]="prioritySort" (click)="sortEmails()" name="prioritySort" ngDefaultControl><i class="material-icons">sort</i></button>
 </div>

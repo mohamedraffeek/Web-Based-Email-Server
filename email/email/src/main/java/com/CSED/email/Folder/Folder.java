@@ -31,6 +31,11 @@ public class Folder {
         return email;
     }
 
+    public Email getEmail(int index){
+        Email email = content.get(index);
+        return email;
+    }
+
     public void readEmail(Email email){
         for(Email email1: content){
             if(email1.getBody().equals(email.getBody())){

@@ -1,6 +1,7 @@
 package com.CSED.email.User;
 
 import com.CSED.email.Account.Account;
+import com.CSED.email.Email.Email;
 import com.CSED.email.Folder.Folder;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -52,5 +53,34 @@ public class User implements IUser{
             }
         }
         return null;
+    }
+
+    @Override
+    public void addFolder(String name){
+        folders.add(new Folder(name));
+    }
+
+    @Override
+    public void deleteFolder(int index){
+        folders.remove(index + 4);
+    }
+    @Override
+    public void renameFolder(int index, String newName){
+        Folder temp = folders.remove(index + 4);
+        temp.setName(newName);
+        folders.add(temp);
+    }
+
+    @Override
+    public ArrayList<Folder> getFolders(){
+        ArrayList<Folder> ret = new ArrayList<>();
+        for(Folder folder: folders){
+            if(folder.getName().equalsIgnoreCase("Inbox") || folder.getName().equalsIgnoreCase("Draft")
+             || folder.getName().equalsIgnoreCase("Sent") || folder.getName().equalsIgnoreCase("Trash")){
+                continue;
+            }
+            ret.add(folder);
+        }
+        return ret;
     }
 }
