@@ -1,6 +1,7 @@
 package com.CSED.email;
 
 import com.CSED.email.Account.Account;
+import com.CSED.email.Contact.Contact;
 import com.CSED.email.Criteria.*;
 import com.CSED.email.Email.Email;
 import com.CSED.email.Folder.Folder;
@@ -259,5 +260,31 @@ public class Controller {
             System.out.println("Something Wrong in moving");
         }
         data.saveData();
+    }
+
+    @PostMapping("/addContact/{name}/{emailAddress}/{username}")
+    public String addContact(@PathVariable("name") String name, @PathVariable("emailAddress") String emailAddress, @PathVariable("username") String username){
+        IUser user = data.getUserByUsername(username);
+        if(!user.isNull()){
+            user.addContact(name, emailAddress);
+        }
+        return "Contact added successfully";
+    }
+
+    @PostMapping("/deleteContact/{index}/{username}")
+    public String deleteContact(@PathVariable("index") int index, @PathVariable("username") String username){
+        IUser user = data.getUserByUsername(username);
+        if(!user.isNull()){
+            user.removeContact(index);
+        }
+        return "Contact deleted successfully";
+    }
+
+    @GetMapping("/getContacts/{username}")
+    public ArrayList<Contact> getContacts(@PathVariable("username") String username){
+        IUser user = data.getUserByUsername(username);
+        if(user.isNull())
+            return null;
+        return user.getContacts();
     }
 }

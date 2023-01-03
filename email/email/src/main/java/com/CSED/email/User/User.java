@@ -1,6 +1,7 @@
 package com.CSED.email.User;
 
 import com.CSED.email.Account.Account;
+import com.CSED.email.Contact.Contact;
 import com.CSED.email.Email.Email;
 import com.CSED.email.Folder.Folder;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -11,10 +12,12 @@ import java.util.ArrayList;
 public class User implements IUser{
     private Account account;
     private ArrayList<Folder> folders;
+    private ArrayList<Contact> contacts;
 
     public User(Account account){
         this.account = account;
         folders = new ArrayList<>();
+        contacts = new ArrayList<>();
         folders.add(new Folder("Inbox"));
         folders.add(new Folder("Sent"));
         folders.add(new Folder("Trash"));
@@ -82,5 +85,18 @@ public class User implements IUser{
             ret.add(folder);
         }
         return ret;
+    }
+
+    @Override
+    public void addContact(String name, String emailAddress){
+        contacts.add(new Contact(name, emailAddress));
+    }
+    @Override
+    public void removeContact(int index){
+        contacts.remove(index);
+    }
+    @Override
+    public ArrayList<Contact> getContacts(){
+        return contacts;
     }
 }

@@ -1,6 +1,7 @@
 package com.CSED.email.User;
 
 import com.CSED.email.Account.Account;
+import com.CSED.email.Contact.Contact;
 import com.CSED.email.Folder.Folder;
 
 import java.util.ArrayList;
@@ -42,6 +43,16 @@ public class NullUser implements IUser{
     }
     @Override
     public ArrayList<Folder> getFolders(){
+        return null;
+    }
+    @Override
+    public void addContact(String name, String ad){
+    }
+    @Override
+    public void removeContact(int index){
+    }
+    @Override
+    public ArrayList<Contact> getContacts(){
         return null;
     }
 }

@@ -1,10 +1,10 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 <div>
-    <button title="Delete Email" (click)="deleteFolder()"><i class="material-icons">delete</i></button>
+    <button title="Delete Folder" (click)="deleteFolder()"><i class="material-icons">delete</i></button>
 </div>
 <div>
-    <button title="refresh" class="Refresh" (click)="refresh()"><i class="material-icons">refresh</i></button>
+    <button title="Refresh" class="Refresh" (click)="refresh()"><i class="material-icons">refresh</i></button>
     <input type="text" [(ngModel)]="newName" placeholder="New Folder..." style="position: relative; left: 5%;">
     <button title="Add" class="add" (click)="addFolder()" style="position: relative;"><i class="material-icons">add</i></button>
     <input type="text" [(ngModel)]="rename" placeholder="Rename Folder..." style="position: relative; left: 10%;">
@@ -18,23 +18,23 @@
     <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[0].isChecked" [value]="checkboxes[0].value" (click)="$event.stopPropagation()">
     <span class="from">{{folders[0].getName()}}</span>
   </div>
-  <div class="row" *ngIf="folders.length > 1">
+  <div class="row" *ngIf="folders.length > 1" (click)="on(1)">
     <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[1].isChecked" [value]="checkboxes[1].value" (click)="$event.stopPropagation()">
     <span class="from">{{folders[1].getName()}}</span>
   </div>
-  <div class="row" *ngIf="folders.length > 2">
+  <div class="row" *ngIf="folders.length > 2" (click)="on(2)">
     <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[2].isChecked" [value]="checkboxes[2].value" (click)="$event.stopPropagation()">
     <span class="from">{{folders[2].getName()}}</span>
   </div>
-  <div class="row" *ngIf="folders.length > 3">
+  <div class="row" *ngIf="folders.length > 3" (click)="on(3)">
     <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[3].isChecked" [value]="checkboxes[3].value" (click)="$event.stopPropagation()">
     <span class="from">{{folders[3].getName()}}</span>
   </div>
-  <div class="row" *ngIf="folders.length > 4">
+  <div class="row" *ngIf="folders.length > 4" (click)="on(4)">
     <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[4].isChecked" [value]="checkboxes[4].value" (click)="$event.stopPropagation()">
     <span class="from">{{folders[4].getName()}}</span>
   </div>
-  <div class="row" *ngIf="folders.length > 5">
+  <div class="row" *ngIf="folders.length > 5" (click)="on(5)">
     <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[5].isChecked" [value]="checkboxes[5].value" (click)="$event.stopPropagation()">
     <span class="from">{{folders[5].getName()}}</span>
   </div>

@@ -106,4 +106,16 @@ export class BackendService {
     return this.http.post<any>(`http://localhost:8080/serve/addToFolder/${Master.Username}/${index}/${folder}`, JSON, httpOptions);
   }
 
+  addContact(name: string, emailAddress: string, username: string): Observable<any>{
+    return this.http.post<any>(`http://localhost:8080/serve/addContact/${name}/${emailAddress}/${username}`, JSON, httpOptions);
+  }
+
+  deleteContact(index: number, username: string): Observable<any>{
+    return this.http.post<any>(`http://localhost:8080/serve/deleteContact/${index}/${username}`, JSON, httpOptions);
+  }
+
+  getContacts(username: string): Observable<any>{
+    return this.http.get<any>(`http://localhost:8080/serve/getContacts/${username}`, httpOptions2);
+  }
+
 }

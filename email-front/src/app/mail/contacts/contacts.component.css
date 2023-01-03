@@ -1,0 +1,207 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+  
+button{
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    border: 1px solid silver;
+    border-radius: 50%;
+}
+
+.add{
+    position: relative;
+    left: 20px;
+}
+
+.rename{
+    position: relative;
+    left: 140px;
+}
+
+button:enabled:hover{
+    background-color: rgb(219, 219, 219);
+}
+
+button:enabled:active{
+    background-color: rgb(194, 192, 192);
+}
+
+#display {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #38383892;
+    animation-name: fade;
+    animation-duration: 0.7s;
+}
+
+.msg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: white;
+    color: rgb(33, 33, 33);
+    width: 60%;
+    height: 80%;
+    border-radius: 20px;
+}
+
+div.row {
+    position: relative;
+    top: 40px;
+    margin-top: 3px;
+    font-size: 18px;
+    width: 90%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid silver;
+    cursor: pointer;
+}
+
+div.row:hover {
+    border-bottom: 1px solid black;
+    transition: 0.5s;
+}
+
+div.row.unread {
+    font-weight: bold;
+}
+
+.close {
+    font-size: 50px;
+    margin-left: 95%;
+    cursor: pointer;
+    color: rgb(76, 76, 76);
+}
+.close:hover {
+    color: red;
+}
+
+div.labels{
+    display: flex;
+    position: relative;
+    top: 20px;
+    font-weight: bold;
+}
+
+.senderl{
+    position: absolute;
+    left: 5.5%;
+    background: linear-gradient(-45deg, #ff7700b3, #e604047b, #d52323c1, #c9d523bc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 15s ease infinite;
+    background-size: 1000% 1000%;
+}
+
+.subjectl{
+    position: absolute;
+    left: 28.7%;
+    background: linear-gradient(-45deg, #ff7700b3, #e604047b, #d52323c1, #c9d523bc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 15s ease infinite;
+    background-size: 1000% 1000%;
+}
+
+.datel{
+    position: absolute;
+    left: 52.3%;
+    background: linear-gradient(-45deg, #ff7700b3, #e604047b, #d52323c1, #c9d523bc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 15s ease infinite;
+    background-size: 1000% 1000%;
+}
+
+.priol{
+    position: absolute;
+    left: 80%;
+    background: linear-gradient(-45deg, #ff7700b3, #e604047b, #d52323c1, #c9d523bc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 15s ease infinite;
+    background-size: 1000% 1000%;
+}
+
+span.from,
+span.subject {
+    width: 20%;
+    margin-left: 6%;
+    text-align: left;
+    position: relative;
+}
+
+span.date {
+    position: relative;
+    width: 12%;
+    margin-left: 6%;
+}
+
+span.prio {
+    position: relative;
+    left: 18%;
+    width: 12%;
+    margin-left: 6%;
+}
+
+.search{
+    position: absolute;
+    left: 40%;
+    top: 5%;
+}
+
+.searchButton{
+    position: absolute;
+    left: -20%;
+    top: 0%;
+}
+
+input{
+    border: none;
+    border-bottom: 1px solid silver;
+    margin-right: 5px;
+}
+
+input:focus{
+    outline: none;
+    border-bottom: 1px solid black;
+}
+
+.reply{
+    position: absolute;
+    top: 90%;
+    width: 60px;
+    height: 40px;
+    border: 1px solid silver;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
