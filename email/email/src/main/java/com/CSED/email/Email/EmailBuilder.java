@@ -9,7 +9,7 @@ public class EmailBuilder{
     private Queue<String> receiver=new LinkedList<>();
     private String subject;
     private String body;
-    private Object attachment;
+    private String[] attachment;
     private Integer priority;
     private boolean read;
     private Date date;
@@ -26,7 +26,7 @@ public class EmailBuilder{
         this.body=body;
         return this;
     }
-    public EmailBuilder attachment(Object attachment){
+    public EmailBuilder attachment(String[] attachment){
         this.attachment=attachment;
         return this;
     }
@@ -80,11 +80,11 @@ public class EmailBuilder{
         this.body = body;
     }
 
-    public Object getAttachment() {
+    public String[] getAttachment() {
         return attachment;
     }
 
-    public void setAttachment(Object attachment) {
+    public void setAttachment(String[] attachment) {
         this.attachment = attachment;
     }
 

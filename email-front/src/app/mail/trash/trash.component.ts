@@ -2,6 +2,9 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Email } from 'src/app/email/email';
 import { Master } from 'src/app/master/master';
 import { BackendService } from 'src/app/Service/backend.service';
+import { saveAs } from 'file-saver';
+import { HttpErrorResponse, HttpEvent, HttpEventType } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-trash',
@@ -18,7 +21,7 @@ export class TrashComponent implements OnInit{
   from!:string;
   content!: string;
   date!: string;
-  attachment!: Object;
+  attachment: string[];
   email!: Email;
   emails: Email[] = [];
   allEmails: Email[] = [];
@@ -110,6 +113,41 @@ export class TrashComponent implements OnInit{
   prev(){
     this.pageNumber -= 1;
     this.emails = this.allEmails.slice((this.pageNumber - 1) * 14, this.allEmails.length - (this.pageNumber - 1) * 14 > 14 ? this.pageNumber * 14 : this.allEmails.length);
+  }
+
+  onDownloadFiles(filename: string): void{
+    this.service.download(filename).subscribe(
+      event => {
+        console.log(event);
+        this.reportProgress(event, filename);
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    )
+  }
+  private reportProgress(event: HttpEvent<string[] | Blob>, name: string): void {
+    switch(event.type){
+      case HttpEventType.UploadProgress:
+        break;
+      case HttpEventType.DownloadProgress:
+        break;
+      case HttpEventType.ResponseHeader:
+        console.log("Header returned", event);
+        break;
+      case HttpEventType.Response:
+        if(event.body instanceof Array){
+          for(const filename of event.body){
+            this.attachment.unshift(filename);
+          }
+        }else{
+          saveAs(new File([event.body], name,
+            {type: `${event.headers.get('Content-Type')};charset=utf-8`}));
+        }
+        break;
+      default:
+        console.log(event);
+    }
   }
 
   ngOnInit(): void {

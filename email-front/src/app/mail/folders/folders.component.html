@@ -5,6 +5,8 @@
 </div>
 <div>
     <button title="Refresh" class="Refresh" (click)="refresh()"><i class="material-icons">refresh</i></button>
+    <button title="Previous" class="prev" [disabled] = "pageNumber == 1" (click)="prev()"><i class="material-icons">arrow_back</i></button>
+    <button title="Next" class="next" [disabled] = "allFolders.length - (pageNumber - 1) * 14 <= 14" (click)="next()"><i class="material-icons">arrow_forward</i></button>
     <input type="text" [(ngModel)]="newName" placeholder="New Folder..." style="position: relative; left: 5%;">
     <button title="Add" class="add" (click)="addFolder()" style="position: relative;"><i class="material-icons">add</i></button>
     <input type="text" [(ngModel)]="rename" placeholder="Rename Folder..." style="position: relative; left: 10%;">
@@ -38,51 +40,108 @@
     <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[5].isChecked" [value]="checkboxes[5].value" (click)="$event.stopPropagation()">
     <span class="from">{{folders[5].getName()}}</span>
   </div>
+  <div class="row" *ngIf="folders.length > 6" (click)="on(6)">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[6].isChecked" [value]="checkboxes[6].value" (click)="$event.stopPropagation()">
+    <span class="from">{{folders[6].getName()}}</span>
+  </div>
+  <div class="row" *ngIf="folders.length > 7" (click)="on(7)">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[7].isChecked" [value]="checkboxes[7].value" (click)="$event.stopPropagation()">
+    <span class="from">{{folders[7].getName()}}</span>
+  </div>
+  <div class="row" *ngIf="folders.length > 8" (click)="on(8)">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[8].isChecked" [value]="checkboxes[8].value" (click)="$event.stopPropagation()">
+    <span class="from">{{folders[8].getName()}}</span>
+  </div>
+  <div class="row" *ngIf="folders.length > 9" (click)="on(9)">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[9].isChecked" [value]="checkboxes[9].value" (click)="$event.stopPropagation()">
+    <span class="from">{{folders[9].getName()}}</span>
+  </div>
+  <div class="row" *ngIf="folders.length > 10" (click)="on(10)">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[10].isChecked" [value]="checkboxes[10].value" (click)="$event.stopPropagation()">
+    <span class="from">{{folders[10].getName()}}</span>
+  </div>
+  <div class="row" *ngIf="folders.length > 11" (click)="on(11)">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[11].isChecked" [value]="checkboxes[11].value" (click)="$event.stopPropagation()">
+    <span class="from">{{folders[11].getName()}}</span>
+  </div>
+  <div class="row" *ngIf="folders.length > 12" (click)="on(12)">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[12].isChecked" [value]="checkboxes[12].value" (click)="$event.stopPropagation()">
+    <span class="from">{{folders[12].getName()}}</span>
+  </div>
+  <div class="row" *ngIf="folders.length > 13" (click)="on(13)">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[13].isChecked" [value]="checkboxes[13].value" (click)="$event.stopPropagation()">
+    <span class="from">{{folders[13].getName()}}</span>
+  </div>
 </div>
 <div id = 'display' #myDisplay>
     <div class="msg">
-        <div class="close" (click)="off()">&times;</div>
-        <div class="labels">
-            <label class="senderl">Sender</label>
-            <label class="subjectl">Subject</label>
-            <label class="datel">Date</label>
-            <label class="priol">Urgency Degree</label>
-          </div>
-        <div class="row{{emails[0].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 0">
-            <span class="from">{{emails[0].getFrom()}}</span>
-            <span class="subject">{{emails[0].getSubject()}}</span>
-            <span class="date">{{emails[0].getDate()}}</span>
-            <span class="prio">{{emails[0].getPriority()}}</span>
-          </div>
-          <div class="row{{emails[1].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 1">
-            <span class="from">{{emails[1].getFrom()}}</span>
-            <span class="subject">{{emails[1].getSubject()}}</span>
-            <span class="date">{{emails[1].getDate()}}</span>
-            <span class="prio">{{emails[1].getPriority()}}</span>
-          </div>
-          <div class="row{{emails[2].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 2">
-            <span class="from">{{emails[2].getFrom()}}</span>
-            <span class="subject">{{emails[2].getSubject()}}</span>
-            <span class="date">{{emails[2].getDate()}}</span>
-            <span class="prio">{{emails[2].getPriority()}}</span>
-          </div>
-          <div class="row{{emails[3].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 3">
-            <span class="from">{{emails[3].getFrom()}}</span>
-            <span class="subject">{{emails[3].getSubject()}}</span>
-            <span class="date">{{emails[3].getDate()}}</span>
-            <span class="prio">{{emails[3].getPriority()}}</span>
-          </div>
-          <div class="row{{emails[4].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 4">
-            <span class="from">{{emails[4].getFrom()}}</span>
-            <span class="subject">{{emails[4].getSubject()}}</span>
-            <span class="date">{{emails[4].getDate()}}</span>
-            <span class="prio">{{emails[4].getPriority()}}</span>
-          </div>
-          <div class="row{{emails[5].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 5">
-            <span class="from">{{emails[5].getFrom()}}</span>
-            <span class="subject">{{emails[5].getSubject()}}</span>
-            <span class="date">{{emails[5].getDate()}}</span>
-            <span class="prio">{{emails[5].getPriority()}}</span>
-          </div>
+      <button title="Previous" class="prev" [disabled] = "pageNumber1 == 1" (click)="prev1()"><i class="material-icons">arrow_back</i></button>
+      <button title="Next" class="next" [disabled] = "allEmails.length - (pageNumber1 - 1) * 7 <= 7" (click)="next1()"><i class="material-icons">arrow_forward</i></button>
+      <div class="close" (click)="off()">&times;</div>
+      <div class="labels">
+        <label class="senderl">Sender</label>
+        <label class="subjectl">Subject</label>
+        <label class="datel">Date</label>
+        <label class="priol">Urgency Degree</label>
+      </div>
+      <div class="row{{emails[0].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 0" (click)="on1(0)">
+          <span class="from">{{emails[0].getFrom()}}</span>
+          <span class="subject">{{emails[0].getSubject()}}</span>
+          <span class="date">{{emails[0].getDate()}}</span>
+          <span class="prio">{{emails[0].getPriority()}}</span>
+        </div>
+        <div class="row{{emails[1].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 1" (click)="on1(1)">
+          <span class="from">{{emails[1].getFrom()}}</span>
+          <span class="subject">{{emails[1].getSubject()}}</span>
+          <span class="date">{{emails[1].getDate()}}</span>
+          <span class="prio">{{emails[1].getPriority()}}</span>
+        </div>
+        <div class="row{{emails[2].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 2" (click)="on1(2)">
+          <span class="from">{{emails[2].getFrom()}}</span>
+          <span class="subject">{{emails[2].getSubject()}}</span>
+          <span class="date">{{emails[2].getDate()}}</span>
+          <span class="prio">{{emails[2].getPriority()}}</span>
+        </div>
+        <div class="row{{emails[3].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 3" (click)="on1(3)">
+          <span class="from">{{emails[3].getFrom()}}</span>
+          <span class="subject">{{emails[3].getSubject()}}</span>
+          <span class="date">{{emails[3].getDate()}}</span>
+          <span class="prio">{{emails[3].getPriority()}}</span>
+        </div>
+        <div class="row{{emails[4].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 4" (click)="on1(4)">
+          <span class="from">{{emails[4].getFrom()}}</span>
+          <span class="subject">{{emails[4].getSubject()}}</span>
+          <span class="date">{{emails[4].getDate()}}</span>
+          <span class="prio">{{emails[4].getPriority()}}</span>
+        </div>
+        <div class="row{{emails[5].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 5" (click)="on1(5)">
+          <span class="from">{{emails[5].getFrom()}}</span>
+          <span class="subject">{{emails[5].getSubject()}}</span>
+          <span class="date">{{emails[5].getDate()}}</span>
+          <span class="prio">{{emails[5].getPriority()}}</span>
+        </div>
+        <div class="row{{emails[6].getRead() ? '' : ' unread'}}" *ngIf="emails.length > 6" (click)="on1(6)">
+          <span class="from">{{emails[6].getFrom()}}</span>
+          <span class="subject">{{emails[6].getSubject()}}</span>
+          <span class="date">{{emails[6].getDate()}}</span>
+          <span class="prio">{{emails[6].getPriority()}}</span>
+        </div>
     </div>
+</div>
+<div id = 'display2' #myDisplay2>
+  <div class="msg">
+    <div class="back" (click)="back()"><i class="material-symbols-outlined">arrow_back</i></div>
+    <h1>{{subject}}</h1>
+    <div>From: {{from}}, on: {{date}}</div>
+    <p>{{content}}</p>
+    <div *ngIf="attachment?.length > 0">
+      <h3>Attachments</h3>
+      <div *ngFor="let filename of attachment">
+        <a (click)="onDownloadFiles(filename)" style="cursor: pointer;">
+          {{filename}}
+        </a>
+      </div>
+    </div>
+    <button class="reply" (click)="reply()">Reply</button>
+  </div>
 </div>

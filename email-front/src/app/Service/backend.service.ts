@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient, HttpEvent, HttpHeaders } from '@angular/common/http'
 import { Account } from '../account/account';
 import { Observable } from 'rxjs';
 import { Master } from '../master/master';
@@ -74,6 +74,10 @@ export class BackendService {
     return this.http.post<any>(`http://localhost:8080/serve/deleteEmailS/${Master.Username}/${index}`, JSON, httpOptions);
   }
 
+  deleteEmailD(index: number): Observable<any>{
+    return this.http.post<any>(`http://localhost:8080/serve/deleteEmailD/${Master.Username}/${index}`, JSON, httpOptions);
+  }
+
   restoreEmail(index: number): Observable<any>{
     return this.http.post<any>(`http://localhost:8080/serve/restoreEmail/${Master.Username}/${index}`, JSON, httpOptions);
   }
@@ -116,6 +120,25 @@ export class BackendService {
 
   getContacts(username: string): Observable<any>{
     return this.http.get<any>(`http://localhost:8080/serve/getContacts/${username}`, httpOptions2);
+  }
+
+  searchContacts(username: string, searchString: string): Observable<any>{
+    return this.http.get(`http://localhost:8080/serve/searchContacts/${username}/${searchString}`, httpOptions2);
+  }
+
+  upload(formData: FormData): Observable<HttpEvent<string[]>>{
+    return this.http.post<string[]>(`http://localhost:8080/serve/upload`, formData, {
+      reportProgress: true,
+      observe: 'events'
+    });
+  }
+
+  download(filename: string): Observable<HttpEvent<Blob>>{
+    return this.http.get(`http://localhost:8080/serve/download/${filename}`, {
+      reportProgress: true,
+      observe: 'events',
+      responseType: 'blob'
+    });
   }
 
 }

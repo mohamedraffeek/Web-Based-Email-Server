@@ -118,5 +118,13 @@
       <h1>{{subject}}</h1>
       <div>From: {{from}}, on: {{date}}</div>
       <p>{{content}}</p>
+      <div *ngIf="attachment?.length > 0">
+        <h3>Attachments</h3>
+        <div *ngFor="let filename of attachment">
+          <a (click)="onDownloadFiles(filename)" style="cursor: pointer;">
+            {{filename}}
+          </a>
+        </div>
+      </div>
     </div>
   </div>

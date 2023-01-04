@@ -10,7 +10,7 @@ public class Email implements Comparable<Email> {
     private Queue<String> to = new LinkedList<>();
     private String subject;
     private String body;
-    private Object attachment;
+    private String[] attachment;
     private Integer priority;
     private boolean read;
     private Date date;
@@ -24,6 +24,9 @@ public class Email implements Comparable<Email> {
         this.priority = Integer.valueOf(builder.getPriority());
         this.read = builder.isRead();
         this.date = builder.getDate();
+    }
+    public Email(){
+
     }
     @Override
     public int compareTo(Email email){
@@ -62,11 +65,11 @@ public class Email implements Comparable<Email> {
         this.body = body;
     }
 
-    public Object getAttachment() {
+    public String[] getAttachment() {
         return attachment;
     }
 
-    public void setAttachment(Object attachment) {
+    public void setAttachment(String[] attachment) {
         this.attachment = attachment;
     }
     public Integer getPriority() {

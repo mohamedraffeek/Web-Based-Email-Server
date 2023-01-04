@@ -14,6 +14,10 @@ public class Folder {
         this.content = new ArrayList<>();
     }
 
+    public Folder(){
+        content = new ArrayList<>();
+    }
+
     public ArrayList<Email> search(Criteria criteria){
         ArrayList<Email> ret = criteria.meetCriteria(content);
         if(ret.size()==0)

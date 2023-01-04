@@ -2,6 +2,7 @@ package com.CSED.email.User;
 
 import com.CSED.email.Account.Account;
 import com.CSED.email.Contact.Contact;
+import com.CSED.email.Criteria.CriteriaName;
 import com.CSED.email.Folder.Folder;
 
 import java.util.ArrayList;
@@ -53,6 +54,10 @@ public class NullUser implements IUser{
     }
     @Override
     public ArrayList<Contact> getContacts(){
+        return null;
+    }
+    @Override
+    public ArrayList<Contact> searchContacts(CriteriaName criteriaName){
         return null;
     }
 }

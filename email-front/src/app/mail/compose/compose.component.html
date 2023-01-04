@@ -14,7 +14,7 @@
         </div>
         <div class="bottom">
             <div class="attach">
-                <input type="file" class="file" multiple="multiple" (change)="getFile($event)">
+                <input type="file" class="file" name="files" multiple (change)="onUploadFiles($any($event.target).files)">
             </div>
             <label class="prio">Priority</label>
             <select name="priority" id="priority">

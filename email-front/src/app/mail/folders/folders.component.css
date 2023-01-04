@@ -28,7 +28,7 @@ button:enabled:active{
     background-color: rgb(194, 192, 192);
 }
 
-#display {
+#display, #display2 {
     display: none;
     position: fixed;
     left: 0;
@@ -82,6 +82,20 @@ div.row.unread {
     cursor: pointer;
     color: rgb(76, 76, 76);
 }
+
+.back {
+    position: absolute;
+    font-size: 50px;
+    margin-left: 90%;
+    margin-top: 1%;
+    cursor: pointer;
+    color: rgb(76, 76, 76);
+}
+
+.back:hover {
+    color: rgb(118, 222, 222);
+}
+
 .close:hover {
     color: red;
 }

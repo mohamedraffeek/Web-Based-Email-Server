@@ -6,9 +6,9 @@ export class Email {
     private date: Date;
     private read: boolean;
     private priority: number;
-    private attachment: FormData;
+    private attachment: string[];
 
-    constructor(from: string, to: Array<string>, subject: string, body: string, read: boolean, priority: number, attachment: FormData){
+    constructor(from: string, to: Array<string>, subject: string, body: string, read: boolean, priority: number, attachment: string[]){
         this.from = from;
         this.to = to;
         this.subject = subject;

@@ -4,9 +4,15 @@
     <button title="Delete Contact" (click)="deleteContact()"><i class="material-icons">delete</i></button>
 </div>
 <div>
+  <input type="text" class="searchStr" placeholder="Search..." [(ngModel)]="searchString">
+  <button class="searchButton" (click)="search()"><i class="material-icons">search</i></button>
+</div>
+<div>
     <button title="refresh" class="Refresh" (click)="refresh()"><i class="material-icons">refresh</i></button>
-    <input type="text" [(ngModel)]="name" placeholder="New Contact Name..." style="position: relative; left: 5%;">
-    <input type="text" [(ngModel)]="emailAddress" placeholder="New Contact Email Address..." style="position: relative; left: 10%;">
+    <button title="Previous" class="prev" [disabled] = "pageNumber == 1" (click)="prev()"><i class="material-icons">arrow_back</i></button>
+    <button title="Next" class="next" [disabled] = "allContacts.length - (pageNumber - 1) * 14 <= 14" (click)="next()"><i class="material-icons">arrow_forward</i></button>
+    <input type="text" [(ngModel)]="name" placeholder="New Contact Name..." style="position: relative; left: 10%;">
+    <input type="text" [(ngModel)]="emailAddress" placeholder="New Contact Email Address..." style="position: relative; left: 15%;">
     <button title="Add Contact" class="rename" (click)="addContact()"><i class="material-symbols-outlined">add</i></button>
 </div>
 <div id="container">
@@ -43,5 +49,45 @@
     <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[5].isChecked" [value]="checkboxes[5].value" (click)="$event.stopPropagation()">
     <span class="from">{{contacts[5].getName()}}</span>
     <span class="subject">{{contacts[5].getEmailAddress()}}</span>
+  </div>
+  <div class="row" *ngIf="contacts.length > 6">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[6].isChecked" [value]="checkboxes[6].value" (click)="$event.stopPropagation()">
+    <span class="from">{{contacts[6].getName()}}</span>
+    <span class="subject">{{contacts[6].getEmailAddress()}}</span>
+  </div>
+  <div class="row" *ngIf="contacts.length > 7">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[7].isChecked" [value]="checkboxes[7].value" (click)="$event.stopPropagation()">
+    <span class="from">{{contacts[7].getName()}}</span>
+    <span class="subject">{{contacts[7].getEmailAddress()}}</span>
+  </div>
+  <div class="row" *ngIf="contacts.length > 8">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[8].isChecked" [value]="checkboxes[8].value" (click)="$event.stopPropagation()">
+    <span class="from">{{contacts[8].getName()}}</span>
+    <span class="subject">{{contacts[8].getEmailAddress()}}</span>
+  </div>
+  <div class="row" *ngIf="contacts.length > 9">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[9].isChecked" [value]="checkboxes[9].value" (click)="$event.stopPropagation()">
+    <span class="from">{{contacts[9].getName()}}</span>
+    <span class="subject">{{contacts[9].getEmailAddress()}}</span>
+  </div>
+  <div class="row" *ngIf="contacts.length > 10">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[10].isChecked" [value]="checkboxes[10].value" (click)="$event.stopPropagation()">
+    <span class="from">{{contacts[10].getName()}}</span>
+    <span class="subject">{{contacts[10].getEmailAddress()}}</span>
+  </div>
+  <div class="row" *ngIf="contacts.length > 11">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[11].isChecked" [value]="checkboxes[11].value" (click)="$event.stopPropagation()">
+    <span class="from">{{contacts[11].getName()}}</span>
+    <span class="subject">{{contacts[11].getEmailAddress()}}</span>
+  </div>
+  <div class="row" *ngIf="contacts.length > 12">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[12].isChecked" [value]="checkboxes[12].value" (click)="$event.stopPropagation()">
+    <span class="from">{{contacts[12].getName()}}</span>
+    <span class="subject">{{contacts[12].getEmailAddress()}}</span>
+  </div>
+  <div class="row" *ngIf="contacts.length > 13">
+    <input type="checkbox" style="position: absolute;" [(ngModel)]="checkboxes[13].isChecked" [value]="checkboxes[13].value" (click)="$event.stopPropagation()">
+    <span class="from">{{contacts[13].getName()}}</span>
+    <span class="subject">{{contacts[13].getEmailAddress()}}</span>
   </div>
 </div>

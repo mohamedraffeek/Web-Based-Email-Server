@@ -16,7 +16,10 @@ export class ContactsComponent implements OnInit{
 
   name!: string;
   emailAddress!: string;
+  searchString: string = '';
+  allContacts: Contact[] = [];
   contacts: Contact[] = [];
+  pageNumber: number = 1;
   checkboxes: any[] = [
     {value: '1', isChecked: false },
     {value: '2', isChecked: false },
@@ -38,13 +41,14 @@ export class ContactsComponent implements OnInit{
 
   loadContacts(){
     this.service.getContacts(Master.Username).subscribe((contactList: Array<Contact>) => {
-      this.contacts = [];
+      this.allContacts = [];
       if(contactList != null){
         contactList.forEach(
           (contact: Contact) => {
-            this.contacts.push(Contact.createContactFromBack(contact));
+            this.allContacts.push(Contact.createContactFromBack(contact));
           }
         )
+        this.contacts = this.allContacts.slice((this.pageNumber - 1) * 14, this.allContacts.length - (this.pageNumber - 1) * 14 > 14 ? this.pageNumber * 14 : this.allContacts.length);
       }
     })
   }
@@ -72,10 +76,40 @@ export class ContactsComponent implements OnInit{
     );
   }
 
+  search(){
+    if(this.searchString.length==0)
+      this.loadContacts();
+    this.service.searchContacts(Master.Username, this.searchString).subscribe((contactList: Array<Contact>) => {
+        this.allContacts = [];
+        if(contactList.length == 0){
+          this.contacts = [];
+          return;
+        }
+        if(contactList != null){
+          contactList.forEach(
+            (contact: Contact) => {
+              this.allContacts.push(Contact.createContactFromBack(contact));
+            }
+          )
+          this.contacts = this.allContacts.slice((this.pageNumber - 1) * 14, this.allContacts.length - (this.pageNumber - 1) * 14 > 14 ? this.pageNumber * 14 : this.allContacts.length);
+        }
+      }
+    )
+  }
+
   refresh(){
     this.loadContacts();
   }
 
+  next(){
+    this.pageNumber += 1;
+    this.contacts = this.allContacts.slice((this.pageNumber - 1) * 14, this.allContacts.length - (this.pageNumber - 1) * 14 > 14 ? this.pageNumber * 14 : this.allContacts.length);
+  }
+
+  prev(){
+    this.pageNumber -= 1;
+    this.contacts = this.allContacts.slice((this.pageNumber - 1) * 14, this.allContacts.length - (this.pageNumber - 1) * 14 > 14 ? this.pageNumber * 14 : this.allContacts.length);
+  }
 
   ngOnInit(): void {
     for(let i of this.ids){

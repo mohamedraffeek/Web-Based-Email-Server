@@ -17,7 +17,8 @@ button{
 
 .rename{
     position: relative;
-    left: 140px;
+    left: 200px;
+    top: 5px;
 }
 
 button:enabled:hover{
@@ -154,16 +155,16 @@ span.prio {
     margin-left: 6%;
 }
 
-.search{
-    position: absolute;
-    left: 40%;
-    top: 5%;
-}
-
 .searchButton{
     position: absolute;
-    left: -20%;
-    top: 0%;
+    left: 80%;
+    top: 9.2%;
+}
+
+.searchStr{
+    position: absolute;
+    left: 65%;
+    top: 11.3%;
 }
 
 input{

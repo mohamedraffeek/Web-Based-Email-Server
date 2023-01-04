@@ -3,6 +3,7 @@ package com.CSED.email.dataAccessObject;
 import com.CSED.email.Account.Account;
 import com.CSED.email.User.IUser;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public interface IData {
@@ -14,4 +15,5 @@ public interface IData {
     void restoreEmail(String username, String folder, int index);
     void moveToFolder(String username, String folder, int index);
     void saveData();
+    void loadData() throws IOException;
 }

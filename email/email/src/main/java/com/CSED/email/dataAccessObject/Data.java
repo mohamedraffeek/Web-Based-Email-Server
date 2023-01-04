@@ -1,4 +1,6 @@
 package com.CSED.email.dataAccessObject;
+import com.CSED.email.User.User;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
@@ -9,8 +11,10 @@ import com.CSED.email.Folder.Folder;
 import com.CSED.email.User.IUser;
 import com.CSED.email.User.NullUser;
 
+import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import lombok.Getter;
 import lombok.Setter;
+import net.minidev.json.parser.JSONParser;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -84,17 +88,30 @@ public class Data implements IData{
 
     @Override
     public void saveData(){
-        File file=new File("Data/users.json");
+        File file = new File("Data/users.json");
         try {
-            ObjectMapper mapper=new ObjectMapper();
-            String jsonStr=mapper.writeValueAsString(registeredUsers);
-            System.out.println("\n"+jsonStr);
-            FileWriter writer = new FileWriter(file);
-            writer.write(jsonStr);
-            writer.close();
+            ObjectMapper mapper = new ObjectMapper();
+            String jsonStr = mapper.writeValueAsString(registeredUsers);
+            System.out.println("\n" + jsonStr);
+            mapper.writeValue(file, registeredUsers);
         }
         catch(IOException e){
             System.out.println(e.getMessage());
         }
+    }
+
+    @Override
+    public void loadData() throws IOException {
+        File file = new File("Data/users.json");
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            this.setUsers(new ArrayList<IUser>(
+                    mapper.readValue(file,
+                            new TypeReference<ArrayList<User>>() {
+                            })));
+        }catch (MismatchedInputException e){
+            System.out.println("Error");
+        }
+        System.out.println(registeredUsers);
     }
 }
