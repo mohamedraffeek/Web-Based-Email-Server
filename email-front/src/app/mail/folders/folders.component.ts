@@ -72,7 +72,8 @@ export class FoldersComponent implements OnInit{
       if(this.checkboxes[i].isChecked){
         this.checkboxes[i].isChecked = false;
         console.log(i);
-        this.service.deleteFolder(i, Master.Username).subscribe(() =>{
+        this.service.deleteFolder((this.allFolders.length - ((this.pageNumber - 1) * 14 + i) - 1), Master.Username).subscribe(() =>{
+          this.allFolders = [];
           this.folders = [];
           this.loadFolders();
         }
@@ -84,6 +85,7 @@ export class FoldersComponent implements OnInit{
   addFolder(){
     this.service.addFolder(this.newName, Master.Username).subscribe((response) =>{
       console.log(response);
+      this.allFolders = [];
       this.folders = [];
       this.loadFolders();
     }
@@ -95,7 +97,8 @@ export class FoldersComponent implements OnInit{
       if(this.checkboxes[i].isChecked){
         this.checkboxes[i].isChecked = false;
         console.log(i);
-        this.service.renameFolder(i, this.rename, Master.Username).subscribe(() =>{
+        this.service.renameFolder((this.allFolders.length - ((this.pageNumber - 1) * 14 + i) - 1), this.rename, Master.Username).subscribe(() =>{
+          this.allFolders = [];
           this.folders = [];
           this.loadFolders();
         }
@@ -126,10 +129,6 @@ export class FoldersComponent implements OnInit{
   on(folderNumber: number){
     this.loadEmails(folderNumber);
     this.myDisp.nativeElement.style.display = 'block';
-    if(!this.emails[folderNumber].getRead()){
-      this.emails[folderNumber].toggleRead();
-      this.service.readEmail(this.emails[folderNumber], "Inbox").subscribe();
-    }
   }
 
   on1(mailNumber: number){

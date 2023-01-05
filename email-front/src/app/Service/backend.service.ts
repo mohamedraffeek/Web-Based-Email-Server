@@ -78,6 +78,10 @@ export class BackendService {
     return this.http.post<any>(`http://localhost:8080/serve/deleteEmailD/${Master.Username}/${index}`, JSON, httpOptions);
   }
 
+  eraseEmailFromData(index: number): Observable<any>{
+    return this.http.post<any>(`http://localhost:8080/serve/eraseEmailFromData/${Master.Username}/${index}`, JSON, httpOptions);
+  }
+
   restoreEmail(index: number): Observable<any>{
     return this.http.post<any>(`http://localhost:8080/serve/restoreEmail/${Master.Username}/${index}`, JSON, httpOptions);
   }

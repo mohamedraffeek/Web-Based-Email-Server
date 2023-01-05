@@ -140,11 +140,11 @@
     <div class="close" (click)="off()">&times;</div>
     <h1>{{subject}}</h1>
     <div>From: {{from}}, on: {{date}}</div>
-    <p>{{content}}</p>
-    <div *ngIf="attachment?.length > 0">
-      <h3>Attachments</h3>
+    <p style="width: 900px; height: 240px; overflow: hidden; overflow-y: scroll; overflow-x: scroll;">{{content}}</p>
+    <h3>Attachments</h3>
+    <div *ngIf="attachment?.length > 0" class="l-h">
       <div *ngFor="let filename of attachment">
-        <a (click)="onDownloadFiles(filename)" style="cursor: pointer;">
+        <a (click)="onDownloadFiles(filename)" class="link">
           {{filename}}
         </a>
       </div>

@@ -68,32 +68,17 @@ public class User implements IUser{
 
     @Override
     public void deleteFolder(int index){
-        if(index < 4){
-            System.out.println("Attempt to delete a main folder detected");
-            return;
-        }
         folders.remove(index + 4);
     }
     @Override
     public void renameFolder(int index, String newName){
-        if(index < 4){
-            System.out.println("Attempt to rename a main folder detected");
-            return;
-        }
-        try {
-            Folder temp = folders.remove(index + 4);
-            temp.setName(newName);
-            folders.add(temp);
-        }catch (IndexOutOfBoundsException e){
-            System.out.println("Attempt to rename a main folder detected");
-        }
+        folders.get(index + 4).setName(newName);
     }
 
     @Override
     public ArrayList<Folder> getFolders(){
         ArrayList<Folder> ret = new ArrayList<>();
         for(Folder folder: folders){
-
             ret.add(folder);
         }
         return ret;

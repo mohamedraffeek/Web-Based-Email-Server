@@ -61,6 +61,21 @@ export class TrashComponent implements OnInit{
     })
   }
 
+  deleteEmails(){
+    for(let i = 0; i < 14; i++){
+      if(this.checkboxes[i].isChecked){
+        this.checkboxes[i].isChecked = false;
+        console.log(i);
+        this.service.eraseEmailFromData((this.allEmails.length - ((this.pageNumber - 1) * 14 + i) - 1)).subscribe(() =>{
+          this.allEmails = [];
+          this.emails = [];
+          this.loadEmails();
+        }
+        );
+      }
+    }
+  }
+
   restoreEmails(){
     for(let i = 0; i < 14; i++){
       if(this.checkboxes[i].isChecked){

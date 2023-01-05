@@ -84,7 +84,6 @@ export class InboxComponent implements OnInit{
         );
       }
     }
-    
   }
 
   addToFolder(){

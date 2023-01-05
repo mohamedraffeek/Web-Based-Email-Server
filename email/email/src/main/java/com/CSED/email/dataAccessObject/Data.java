@@ -69,6 +69,13 @@ public class Data implements IData{
     }
 
     @Override
+    public void eraseEmail(String username, int index){
+        IUser user = this.getUserByUsername(username);
+        Folder folder = user.getFolder("Trash");
+        Email email = folder.deleteEmail(index);
+    }
+
+    @Override
     public void restoreEmail(String username,String folderName,int index){
         IUser user = this.getUserByUsername(username);
         Folder folder = user.getFolder(folderName);

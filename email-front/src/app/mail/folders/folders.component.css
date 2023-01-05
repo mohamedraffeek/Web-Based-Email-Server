@@ -199,6 +199,22 @@ input:focus{
     border: 1px solid silver;
 }
 
+.link{
+    color: blue;
+    cursor: pointer;
+}
+  
+.link:hover{
+    color: green;
+}
+  
+.l-h{
+    overflow: hidden;
+    height: 100px;
+    width: 350px;
+    overflow-y: scroll;
+}
+
 @keyframes fade {
     from {
         opacity: 0;

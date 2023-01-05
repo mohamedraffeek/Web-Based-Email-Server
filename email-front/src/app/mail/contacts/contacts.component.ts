@@ -58,8 +58,9 @@ export class ContactsComponent implements OnInit{
       if(this.checkboxes[i].isChecked){
         this.checkboxes[i].isChecked = false;
         console.log(i);
-        this.service.deleteContact(i, Master.Username).subscribe(() =>{
-          this.contacts = [];
+        this.service.deleteContact((this.allContacts.length - ((this.pageNumber - 1) * 14 + i) - 1), Master.Username).subscribe(() =>{
+          this.allContacts = [];
+          this.contacts
           this.loadContacts();
         }
         );
@@ -70,6 +71,7 @@ export class ContactsComponent implements OnInit{
   addContact(){
     this.service.addContact(this.name, this.emailAddress, Master.Username).subscribe((response) =>{
       console.log(response);
+      this.allContacts = [];
       this.contacts = [];
       this.loadContacts();
     }

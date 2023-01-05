@@ -169,6 +169,16 @@ public class Controller {
         data.saveData();
     }
 
+    @PostMapping("/eraseEmailFromData/{username}/{index}")
+    public void eraseEmailFromData(@PathVariable("index") int index, @PathVariable("username") String username){
+        try {
+            data.eraseEmail(username, index);
+        }catch(Exception e){
+            System.out.println("Something Wrong in erasing");
+        }
+        data.saveData();
+    }
+
     @PostMapping("/restoreEmail/{username}/{index}")
     public void restoreEmail(@PathVariable("index") int index, @PathVariable("username") String username){
         try {
